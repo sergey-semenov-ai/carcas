@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{{ super () }}
+
+<div class = "container">
+
+
+<div class = "row">
+<div class = "col-md-8">
+
+   <label >Ввод данных для нового прогноза </label>
+
+   <br>
+
+</div>
+</div>
+
+
+<div class = "row">
+<div class = "col-md-8">
+
+
+<form action="/enter_item" enctype="multipart/form-data" method="post">  
+
+<table class="table table-striped table-hover">
+  <tr>
+     <td><label class="text-primary">type_school </label></td>
+     <td><input type="select" name="type_school" size = 80 value="" requied/></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">school_accreditation </label></td>
+     <td><input type="number" name="school_accreditation" size = 80 value="" requied/></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">gender </label></td>
+     <td><input type="text" name="gender" size = 80 value="" requied/></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">interest </label></td>
+     <td><input type="text" name="interest" size = 80 value="" requied/></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">residence </label></td>
+     <td><input type="text" name="residence" size = 80 value="" requied/></td>     
+  </tr>
+
+  <tr>
+   <td><label class="text-primary">parent_age </label></td>
+   <td><input type="text" name="parent_age" size = 80 value="" requied/></td>     
+  </tr>
+
+  <tr>
+     <td><label class="text-primary">parent_salary </label></td>
+     <td><input type="text" name="parent_salary" size = 80 value="" requied/></td>     
+  </tr>
+  
+  <tr>
+     <td><label class="text-primary">house_area </label></td>
+     <td><input type="text" name="house_area" size = 80 value="" requied/></td>     
+  </tr>
+
+  <tr>
+   <td><label class="text-primary">average_grades </label></td>
+   <td><input type="text" name="average_grades" size = 80 value="" requied/></td>     
+  </tr>
+
+  <tr>
+   <td><label class="text-primary">parent_was_in_college </label></td>
+   <td><input type="text" name="parent_was_in_college" size = 80 value="" requied/></td>     
+  </tr>
+
+  
+
+  <tr>
+     <td> </td>
+     <td align ="right"> <input type="submit" class="btn btn-primary" value="Получить прогноз" /></td>
+  </tr>
+
+</table>
+</form> 
+</div>
+</div>
+
+
+</div>
+
+<div class = "container text-danger">
+  {% for msg in get_flashed_messages() %}
+    <div>{{msg}}</div>
+  {% endfor %} 
+</div>
+{% endblock content %}

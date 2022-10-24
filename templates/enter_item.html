@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{{ super () }}
+
+<div class = "container">
+
+
+<div class = "row">
+<div class = "col-md-8">
+
+   <label >Ввод данных для нового прогноза </label>
+
+   <br>
+
+</div>
+</div>
+
+
+<div class = "row">
+<div class = "col-md-8">
+
+
+<form action="/enter_item" enctype="multipart/form-data" method="post">  
+
+<table class="table table-striped table-hover">
+  <tr>
+     <td><label class="text-primary"> Type of school: </label></td>
+     <td><select name="type_school">
+     <option disabled>Выберите вариант</option>
+     <option value="0">Academic</option>
+     <option value="1">Vocational</option>
+        </select></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">School Accreditation: </label></td>
+     <td><select name="school_accreditation">
+        <option disabled>Выберите вариант</option>
+        <option value="0">A</option>
+        <option value="1">B</option>
+        </select></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">Gender: </label></td>
+     <td><select name="gender">
+        <option disabled>Выберите вариант</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+        </select></td>
+  </tr>
+  
+
+  <tr>
+     <td><label class="text-primary">Interest: </label></td>
+     <td><select name="interest">
+        <option disabled>Выберите вариант</option>
+        <option value="0">Not Interested</option>
+        <option value="1">Quiet Interested</option>
+        <option value="2">Less Interested</option>
+        <option value="3">Uncertain</option>
+        <option value="4">Very Interested</option>
+
+        </select></td>
+  </tr> 
+
+  <tr>
+     <td><label class="text-primary">Residence: </label></td>
+     <td><select name="residence">
+        <option disabled>Выберите вариант</option>
+        <option value="1">Urban</option>
+        <option value="0">Rural</option>
+        </select></td>
+  </tr> 
+
+
+
+  <tr>
+     <td><label class="text-primary">Age of parents: </label></td>
+     <td><input type="number" name="parent_age" size = 80 value="" requied/></td>
+          
+  </tr>
+
+  <tr>
+     <td><label class="text-primary">Parents' salary: </label></td>
+     <td><input type="number" name="parent_salary" size = 80 value="" requied/></td>     
+  </tr>
+  
+  <tr>
+     <td><label class="text-primary">House area: </label></td>
+     <td><input type="number" name="house_area" size = 80 value="" requied/></td>     
+  </tr>
+  
+  <tr>
+     <td><label class="text-primary"> Average Grades: </label></td>
+     <td><input type="number" name="average_grades" size = 80 value="" requied/></td>
+  </tr> 
+  
+  <tr>
+     <td><label class="text-primary"> Parent was in college: </label></td>
+     <td><select name="parent_was_in_college">
+        <option disabled>Выберите вариант</option>
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+        </select></td>
+  </tr> 
+  
+
+
+  <tr>
+     <td> </td>
+     <td align="right"> <input type="submit" class="btn btn-primary" value="Получить прогноз" /></td>
+  </tr>
+
+</table>
+</form> 
+</div>
+</div>
+
+
+</div>
+
+<div class = "container text-danger">
+  {% for msg in get_flashed_messages() %}
+    <div>{{msg}}</div>
+  {% endfor %} 
+</div>
+{% endblock content %}
